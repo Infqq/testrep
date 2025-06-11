@@ -26,6 +26,7 @@ print(f"API ключ OpenAI: {OPENAI_API_KEY}")
 print(f"URL вебхука: {WEBHOOK_URL}")
 print(f"Маршрут: {ROUTE}")
 print(f"ID помощника: {ASSISTANT_ID}")
+print(1223)
 
 openai.api_key = OPENAI_API_KEY
 
@@ -51,13 +52,7 @@ async def process_message(request: Request):
     print(f"Обрабатывается сообщение пользователя: {user_key}, thread_id: {thread_id}")
 
     if not thread_id:
-        thread = client.beta.threads.create(
-            tool_resources={
-                "file_search": {
-                    "vector_store_ids": ["vs_DekzgbGTicAnBeIMeArwkvQe"]
-                }
-            }
-        )
+        thread = client.beta.threads.create()
         thread_id = thread.id
         user_threads[user_key] = thread_id
 
@@ -108,8 +103,7 @@ async def handle_openai_request(data, thread_id, client_id):
 
     run = client.beta.threads.runs.create(
         thread_id=thread_id,
-        assistant_id=ASSISTANT_ID,
-        tools=tools_list
+        assistant_id=ASSISTANT_ID
     )
     print(f"Создана новая задача: {run.id}")
     user_active_runs[user_key] = run.id
