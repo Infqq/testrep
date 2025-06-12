@@ -29,8 +29,9 @@ print(f"ID помощника: {ASSISTANT_ID}")
 print(1223)
 
 openai.api_key = OPENAI_API_KEY
+openai.organization = "org-MbWjhhShwwmi3Tso0LnLSejk"
 
-client = openai.OpenAI(api_key=OPENAI_API_KEY, organization="org-MbWjhhShwwmi3Tso0LnLSejk")
+client = openai.OpenAI(api_key=OPENAI_API_KEY, timeout=60, organization="org-MbWjhhShwwmi3Tso0LnLSejk")
 
 user_threads = {}
 
