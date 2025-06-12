@@ -30,8 +30,9 @@ print(1223)
 
 openai.api_key = OPENAI_API_KEY
 openai.organization = "org-MbWjhhShwwmi3Tso0LnLSejk"
+openai.timeout = 60
 
-client = openai.OpenAI(api_key=OPENAI_API_KEY, timeout=60, organization="org-MbWjhhShwwmi3Tso0LnLSejk")
+client = openai.OpenAI()
 
 user_threads = {}
 
