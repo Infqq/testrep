@@ -1,9 +1,9 @@
 fastapi
 python-dotenv
-openai==1.30.5
+openai==1.55.3
 aiohttp
 uvicorn
 pytz
 requests
-httpx
+httpx==0.27.2
 aiohttp
